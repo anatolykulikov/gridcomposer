@@ -62,9 +62,22 @@ function classBlock(spaces, className, attributes) {
 // Рендер результата
 function render() {
     let html = new String('');
+    // Установленный процессор
+    let processor = localStorage.getItem('gc-proc');
 
-    html += baseSCSS();
-    html += gridSCSS();
+    // В зависимости используем нужный процессор / препроцессор
+    switch(processor) {
+        case 'CSS' : {
+            html += baseCSS();
+            html += gridCSS();
+            break;
+        }
+        case 'SCSS' : {
+            html += baseSCSS();
+            html += gridSCSS();
+            break;
+        }
+    }
 
     // Вставляем исходник
     result.innerHTML = html;

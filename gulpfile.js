@@ -13,7 +13,8 @@ const path = {
     src: {
         html: 'src/**/*.html',
         js: 'src/js/*.js',
-        css: 'src/sass/*.scss'
+        css: 'src/sass/*.scss',
+        favicon: 'src/favicon.png'
     },
     build: {
         root: 'docs/',
@@ -31,6 +32,12 @@ gulp.task('kill', function() {
 // Сборка HTML
 gulp.task('html', () => {
     return gulp.src(path.src.html)
+        .pipe(gulp.dest(path.build.root))
+});
+
+// Перенос Favicon
+gulp.task('favicon', () => {
+    return gulp.src(path.src.favicon)
         .pipe(gulp.dest(path.build.root))
 });
 
@@ -61,5 +68,5 @@ gulp.task('watch', function() {
     gulp.watch(path.src.css, gulp.series('css'));
 });
 
-gulp.task('dev', gulp.series('kill', gulp.parallel('html', 'js', 'css'), 'watch'));
-gulp.task('build', gulp.series('kill', gulp.parallel('html', 'js', 'css')));
+gulp.task('dev', gulp.series('kill', gulp.parallel('html', 'js', 'css', 'favicon'), 'watch'));
+gulp.task('build', gulp.series('kill', gulp.parallel('html', 'js', 'css', 'favicon')));

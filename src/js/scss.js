@@ -78,7 +78,7 @@ function gridSCSS() {
     html += scssFor('for', document.getElementById('colcounts').value, [
         [4, `${document.getElementById('colprefix').value}-#{<span class="variable">$i</span>}`, [
                 [8, 'width', '', '(<span class="variable">$column-width</span> * <span class="variable">$i</span>) + ((<span class="variable">$i</span> - <span class="number">1</span>) * (<span class="variable">$column-spase</span> * <span class="number">2</span>))'],
-                [8, 'margin', 'number', `0 ${document.getElementById('colspase').value}px`]
+                [8, 'margin', 'number', '<span class="number">0</span> <span class="variable">$column-spase</span>']
             ]
         ]
     ]);

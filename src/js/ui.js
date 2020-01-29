@@ -35,27 +35,52 @@ function loadUI() {
     window.langLib = langSet();
     
     // Код приложения
-    const html = `<section class="toggles"><div class="generator"><h1>Grid Composer</h1><label><span>${locales[langLib].texts[0]}</span><input class="watcher" id="wrappername" type="text" value="wrapper"></label><label><span>${locales[langLib].texts[1]}</span><input class="watcher" id="rowname" type="text" value="row"></label><label><span>${locales[langLib].texts[2]}</span><input class="watcher" id="colprefix" type="text" value="col"></label><hr><label><span>${locales[langLib].texts[3]}</span><input class="watcher" id="width" type="number" step="10" value="1000"></label><label><span>${locales[langLib].texts[4]}</span><input class="watcher" id="colcounts" type="number" min="1" value="4"></label><label><span>${locales[langLib].texts[5]}</span><input class="watcher" id="colspase" type="number" min="1" value="10"></label></div><div class="settings">${settingsUI()}</div></section><section class="outputarea"><pre class="${setColor()}"><code id="result"></code></pre></section>`;
+    const html = `<section class="toggles"><div class="generator"><h1>Grid Composer</h1>${processorUI()}<hr><label><span>${locales[langLib].texts[0]}</span><input class="watcher" id="wrappername" type="text" value="wrapper"></label><label><span>${locales[langLib].texts[1]}</span><input class="watcher" id="rowname" type="text" value="row"></label><label><span>${locales[langLib].texts[2]}</span><input class="watcher" id="colprefix" type="text" value="col"></label><hr><label><span>${locales[langLib].texts[3]}</span><input class="watcher" id="width" type="number" step="10" value="1000"></label><label><span>${locales[langLib].texts[4]}</span><input class="watcher" id="colcounts" type="number" min="1" value="4"></label><label><span>${locales[langLib].texts[5]}</span><input class="watcher" id="colspase" type="number" min="1" value="10"></label></div><div class="settings">${settingsUI()}</div></section><section class="outputarea"><pre class="${setColor()}"><code id="result"></code></pre></section>`;
 
     // Вставляем приложение
     document.getElementById('root').innerHTML = html;
 
+    // Устанавливаем цветовую схему
     setColorButton();
-}
 
+    // Устанавливаем сохраненное положение и подключаем переключение процессора
+    setProcessor();
+    document.getElementById('processor').addEventListener('change', () => {
+        switchProcessor();
+    });
+}
+// Кнопки настройки внешнего вида
 function settingsUI() {
-    let html = `<div class="toggle_color">
-        <label class="dark">
-            <input type="radio" name="color" value="dark" onChange="switchColor('dark')">
-            <span></span>
-        </label>
-        <label class="white">
-            <input type="radio" name="color" value="white" onChange="switchColor('white')">
-            <span></span>
-        </label>
-    </div>`;
+    let html = `<div class="toggle_color"><label class="dark"><input type="radio" name="color" value="dark" onChange="switchColor('dark')"><span></span></label><label class="white"><input type="radio" name="color" value="white" onChange="switchColor('white')"><span></span></label></div>`;
 
     return html;
+}
+
+// Выбор процессора
+function processorUI() {
+    let html = `<label><select class="watcher" id="processor"><option>CSS</option><option>SCSS</option></select></label>`;
+
+    return html;
+}
+
+// Установка переключателя процессора
+function setProcessor() {
+    let processor = 'CSS';
+
+    if(localStorage.getItem('gc-proc')) {
+        processor = localStorage.getItem('gc-proc');
+    } else {
+        localStorage.setItem('gc-proc', processor);
+    }
+
+    return document.getElementById('processor').value = processor;
+}
+
+// Переключение процессора
+function switchProcessor() {
+    let processor = document.getElementById('processor').value;
+
+    localStorage.setItem('gc-proc', processor);
 }
 
 // Язык приложения
@@ -86,8 +111,6 @@ function langSet() {
 
 // Цветовая палитра
 function setColor() {
-    console.log('setColor()');
-
     // Схема по-умолчанию
     let colorScheme = 'dark';
 
