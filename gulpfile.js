@@ -16,11 +16,11 @@ const path = {
         css: 'src/sass/*.scss'
     },
     build: {
-        root: 'dist/',
-        js: 'dist/js',
-        css: 'dist/css'
+        root: 'docs/',
+        js: 'docs/js',
+        css: 'docs/css'
     },
-    clean: 'dist/'
+    clean: 'docs/'
 };
 
 // Удаление сборки
