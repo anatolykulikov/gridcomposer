@@ -131,6 +131,13 @@ main {
                         background-color: #575a61;
                     }
                 }
+                .mono > span {
+                    background: linear-gradient(90deg, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%);
+
+                    &::before {
+                        background: linear-gradient(90deg, rgba(0,0,0,1) 50%, rgba(255,255,255,1) 50%);
+                    }
+                }
             }
         }
     }

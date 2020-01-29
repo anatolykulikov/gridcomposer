@@ -1,6 +1,7 @@
 // Dark theme
 .code-dark {
     color: #c0c5ce;
+    border-left: #2b303b solid 1px;
     background: #2b303b;
 
     .stylenames {
@@ -27,6 +28,7 @@
 .code-white {
     color: #969896;
     background: #ffffff;
+    border-left: #e0e0e0 solid 1px;
     box-shadow: #e0e0e0 inset 0px 0px 10px;
 
     .stylenames {
@@ -46,5 +48,32 @@
     }
     .comment {
         color: #969896;
+    }
+}
+
+
+// Monochrome theme
+.code-mono {
+    color: #969896;
+    background: #ffffff;
+    border-left: #c1c1c1 solid 1px;
+
+    .stylenames {
+        color: #000000;
+    }
+    .attributes {
+        color: #414141;
+    }
+    .string {
+        color: #414141;
+    }
+    .number {
+        color: #414141;
+    }
+    .variable {
+        color: #000000;
+    }
+    .comment {
+        color: #717171;
     }
 }

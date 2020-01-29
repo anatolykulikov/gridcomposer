@@ -3,6 +3,10 @@ function baseCSS() {
     // Назначаем строку для кода
     let html = new String('');
 
+    // Сharset для CSS-файла
+    html += `<span class="stylenames">@charset</span> <span class="string">"UTF-8"</span>;`;
+    html += clearLine();
+
     // Выводим комментарий для блока
     html += commentLine(locales[langLib].texts[7]);
 

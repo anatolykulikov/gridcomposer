@@ -51,7 +51,7 @@ function loadUI() {
 }
 // Кнопки настройки внешнего вида
 function settingsUI() {
-    let html = `<div class="toggle_color"><label class="dark"><input type="radio" name="color" value="dark" onChange="switchColor('dark')"><span></span></label><label class="white"><input type="radio" name="color" value="white" onChange="switchColor('white')"><span></span></label></div>`;
+    let html = `<div class="toggle_color"><label class="dark"><input type="radio" name="color" value="dark" onChange="switchColor('dark')"><span></span></label><label class="white"><input type="radio" name="color" value="white" onChange="switchColor('white')"><span></span></label><label class="mono"><input type="radio" name="color" value="mono" onChange="switchColor('mono')"><span></span></label></div>`;
 
     return html;
 }
