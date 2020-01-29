@@ -1,0 +1,174 @@
+$FontSize: 16px;
+
+main {
+    display: flex;
+    width: 100%;
+
+    .toggles {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-between;
+        width: 300px;
+        height: 100vh;
+        background: #fff;
+        padding: 10px 0;
+
+        .generator {
+            display: block;
+            width: 100%;
+
+            h1 {
+                display: block;
+                width: 100%;
+                padding: 0 20px;
+                color: #16214d;
+            }
+    
+            hr {
+                display: block;
+                width: 100%;
+                height: 1px;
+                margin: 5px 0;
+                border: none;
+                background-color: #c1c1c1;
+            }
+    
+            label {
+                display: block;
+                width: 100%;
+                padding: 10px 20px;
+                font-size: $FontSize;
+    
+                span {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 4px;
+                    font-weight: 700;
+                }
+    
+                input, select {
+                    display: block;
+                    width: 100%;
+                    outline: none;
+                    border: #6d6e70 solid 1px;
+                    border-radius: 2px;
+                    padding: 6px;
+                    font-size: $FontSize;
+                    background: #fff;
+                }
+    
+                > select {
+                    height: 32px;
+                }
+            }
+        }
+
+        .settings {
+            display: block;
+            width: 100%;
+            padding: 0 20px;
+
+            .toggle_color {
+                display: flex;
+                width: 100%;
+            
+                > label {
+                    display: block;
+                    
+                    &:not(:last-of-type) {
+                        margin-right: 15px;
+                    }
+
+                    input[type="radio"] {
+                        display: none;
+                    }
+
+                    $size: 48px;
+
+                    span {
+                        display: block;
+                        width: $size;
+                        height: $size;
+                        border: #e0e0e0 solid 1px;
+                        border-radius: 6px;
+
+                        &::before {
+                            content: '';
+                            position: relative;
+                            top: 18px;
+                            left: 18px;
+                            display: block;
+                            width: 12px;
+                            height: 12px;
+                            border-radius: 50%;
+                            opacity: 0;
+                            transition: opacity ease-in-out .2s;
+                        }
+                    }
+
+                    input[type="radio"]:checked + span {
+                        box-shadow: #B3E5FC 0 0 10px;
+
+                        &::before {
+                            content: '';
+                            opacity: 1;
+                        }
+                    }
+            
+                }
+            
+                .dark > span {
+                    background-color: #2b303b;
+
+                    &::before {
+                        background-color: #ffffff;
+                    }
+                }
+                .white > span {
+                    background-color: #ffffff;
+
+                    &::before {
+                        background-color: #575a61;
+                    }
+                }
+            }
+        }
+    }
+
+    .outputarea {
+        position: relative;
+        z-index: 0;
+        display: block;
+        width: calc(100% - 300px);
+        height: 100vh;
+        overflow: auto;
+
+        pre {
+            display: block;
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            transition: all ease-in-out .2s;
+
+            code {
+                display: block;
+                width: 100%;
+                font-family: monospace;
+                font-size: $FontSize;
+                line-height: 24px;
+
+                div {
+                    font: inherit;
+                    line-height: inherit;
+                }
+        
+                span {
+                    font: inherit;
+                }
+            }
+        }
+    }
+}
+
+

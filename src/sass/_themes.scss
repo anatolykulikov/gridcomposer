@@ -1,0 +1,50 @@
+// Dark theme
+.code-dark {
+    color: #c0c5ce;
+    background: #2b303b;
+
+    .stylenames {
+        color: #b48ead;
+    }
+    .attributes {
+        color: #ebcb8b;
+    }
+    .string {
+        color: #a3be8c;
+    }
+    .number {
+        color: #d08770;
+    }
+    .variable {
+        color: #bf616a;
+    }
+    .comment {
+        color: #14bd70;
+    }
+}
+
+// White theme
+.code-white {
+    color: #969896;
+    background: #ffffff;
+    box-shadow: #e0e0e0 inset 0px 0px 10px;
+
+    .stylenames {
+        color: #b48ead;
+    }
+    .attributes {
+        color: #0086b3;
+    }
+    .string {
+        color: #032f62;
+    }
+    .number {
+        color: #005cc5;
+    }
+    .variable {
+        color: #df5000;
+    }
+    .comment {
+        color: #969896;
+    }
+}
